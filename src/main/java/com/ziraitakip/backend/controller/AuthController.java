@@ -18,15 +18,12 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
+    @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private JwtUtil jwtUtil;
-
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, PasswordEncoder passwordEncoder) {
-        this.authenticationManager = authenticationManager;
-        this.jwtUtil = jwtUtil;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginReqDto loginReqDto) {

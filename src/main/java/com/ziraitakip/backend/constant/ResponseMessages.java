@@ -18,6 +18,12 @@ public class ResponseMessages {
         return messages;
     }
 
+    public static ArrayList<MessageBody> LOGIN_FAILED(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Geçersiz kullanıcı adı veya şifre.", "TR"));
+        messages.add(new MessageBody("Invalid username or password.", "EN"));
+        return messages;
+    }
 
     public static ArrayList<MessageBody> REGISTER_SUCCESS(){
         ArrayList<MessageBody> messages = new ArrayList<>();
