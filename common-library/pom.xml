@@ -8,11 +8,11 @@
 		<version>3.2.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.zirai-takip</groupId>
-	<artifactId>backend</artifactId>
+	<groupId>com.common-library</groupId>
+	<artifactId>common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zirai-takip-backend</name>
-	<description>Zirai takip backend</description>
+	<name>common</name>
+	<description>Common Library</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -92,10 +92,15 @@
 			<version>1.18.30</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>zirai-backend</finalName>
+		<finalName>file-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

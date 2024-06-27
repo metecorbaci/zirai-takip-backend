@@ -1,0 +1,14 @@
+package com.fileservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan("com.fileservice.model")
+@SpringBootApplication
+public class FileServiceApplication  {
+	public static void main(String[] args) {
+		SpringApplication.run(FileServiceApplication.class, args);
+	}
+
+}
