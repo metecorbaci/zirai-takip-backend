@@ -1,4 +1,5 @@
 package com.fileservice.util;
+import com.fileservice.dto.UserDto;
 import com.fileservice.service.CustomAuthService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -37,15 +38,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if(StringUtils.hasText(token) && jwtUtil.validateToken(token)){
 
             // Token içerisinden mail al
-            String email = jwtUtil.getMail(token);
+            UserDto userDto = jwtUtil.getUserInfo(token);
 
             // Mail'e göre kullanıcı bilgilerini al
             // NOT : loadUserByUsername metodu CustomAuthService sınıfında implemente edilmiştir ve bu metot kullanıcı bilgilerini döndürmektedir
             // User'a ait unique değer nizim projemizde email olduğu için email üzerinden kullanıcı bilgileri alınmaktadır.
-            UserDetails userDetails = authService.loadUserByUsername(email);
-
+            UserDetails userDetails = authService.loadUserByUsername(userDto.getEmail());
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                    userDetails,
+                    userDto,
                     null,
                     userDetails.getAuthorities()
             );

@@ -77,5 +77,72 @@ public class ResponseMessages {
         messages.add(new MessageBody("User activated.", "EN"));
         return messages;
     }
+
+    public static ArrayList<MessageBody> FILE_EMPTY(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya boş olamaz.", "TR"));
+        messages.add(new MessageBody("File cannot be empty.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_UPLOAD_SUCCESS(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya başarıyla yüklendi.", "TR"));
+        messages.add(new MessageBody("File uploaded successfully.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_UPLOAD_FAILED(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya yüklenemedi.", "TR"));
+        messages.add(new MessageBody("File could not be uploaded.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_TYPE_NOT_FOUND(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya tipi bulunamadı.", "TR"));
+        messages.add(new MessageBody("File type not found.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_TYPE_NOT_ALLOWED(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya tipi izin verilmiyor.", "TR"));
+        messages.add(new MessageBody("File type not allowed.", "EN"));
+        return messages;
+    }
+
+
+
+    public static ArrayList<MessageBody> FILE_DOWNLOAD_SUCCESS(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya başarıyla indirildi.", "TR"));
+        messages.add(new MessageBody("File downloaded successfully.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_NOT_FOUND(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya bulunamadı.", "TR"));
+        messages.add(new MessageBody("File not found.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_DELETE_SUCCESS(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya başarıyla silindi.", "TR"));
+        messages.add(new MessageBody("File deleted successfully.", "EN"));
+        return messages;
+    }
+
+    public static ArrayList<MessageBody> FILE_DELETE_FAILED(){
+        ArrayList<MessageBody> messages = new ArrayList<>();
+        messages.add(new MessageBody("Dosya silinemedi.", "TR"));
+        messages.add(new MessageBody("File could not be deleted.", "EN"));
+        return messages;
+    }
+
+
 }
 

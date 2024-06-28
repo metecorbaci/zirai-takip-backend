@@ -7,10 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 
 import javax.naming.AuthenticationException;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 @Component
 public class JwtUtil {
@@ -31,7 +29,7 @@ public class JwtUtil {
         claims.put("email",user.getEmail());
         claims.put("role_id",user.getRole() == null ? 0 : user.getRole().getId());
         claims.put("id",user.getId());
-        claims.put("activation_code",user.getActivation_code() == null ? "" : user.getActivation_code());
+        claims.put("activation_code",user.getActivationCode() == null ? "" : user.getActivationCode());
         Date tokenCreateTime = new Date();
         Date tokenValidity = new Date(tokenCreateTime.getTime() + TimeUnit.MINUTES.toMillis(accessTokenValidity));
         return Jwts.builder()

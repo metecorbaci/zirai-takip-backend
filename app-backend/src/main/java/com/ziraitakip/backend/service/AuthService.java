@@ -46,7 +46,7 @@ public class AuthService {
             if(user == null){
                 return ResponseBody.sendBody(ResponseMessages.USER_NOT_FOUND(), null, HttpStatus.BAD_REQUEST);
             }
-            if(!user.getIs_active()){
+            if(!user.getIsActive()){
                 return ResponseBody.sendBody(ResponseMessages.USER_NOT_ACTIVATED(), null, HttpStatus.BAD_REQUEST);
             }
             Authentication authentication =
@@ -73,7 +73,7 @@ public class AuthService {
                 return ResponseBody.sendBody(ResponseMessages.USER_ALREADY_EXISTS(), null, HttpStatus.BAD_REQUEST);
             }
             // Activation mailinde gozukecek olan activation code'u olusturuyoruz.
-            newUser.setActivation_code(ActivationKeyGenerator.generateKey());
+            newUser.setActivationCode(ActivationKeyGenerator.generateKey());
             User savedUser = userRepository.save(newUser);
             String token = jwtUtil.createToken(savedUser);
             emailService.sendActivationMail(newUser.getEmail(), newUser, token);
@@ -93,14 +93,14 @@ public class AuthService {
             if(user == null){
                 return ResponseBody.sendBody(ResponseMessages.USER_NOT_FOUND(), null, HttpStatus.NOT_FOUND);
             }
-            if(user.getIs_active()){
+            if(user.getIsActive()){
                 return ResponseBody.sendBody(ResponseMessages.USER_ALREADY_ACTIVATED(), null, HttpStatus.BAD_REQUEST);
             }
-            if(!user.getActivation_code().equals(userConfirmDto.getActivation_code())){
+            if(!user.getActivationCode().equals(userConfirmDto.getActivation_code())){
                 return ResponseBody.sendBody(ResponseMessages.USER_ACTIVATION_CODE_NOT_MATCH(), null, HttpStatus.BAD_REQUEST);
             }
-            user.setIs_active(true);
-            user.setActivation_code(null);
+            user.setIsActive(true);
+            user.setActivationCode(null);
             userRepository.save(user);
             return ResponseBody.sendBody(ResponseMessages.USER_ACTIVATED(), null, HttpStatus.OK);
         }catch (Exception e){

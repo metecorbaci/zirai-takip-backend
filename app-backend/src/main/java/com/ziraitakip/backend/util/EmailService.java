@@ -1,7 +1,6 @@
 package com.ziraitakip.backend.util;
 
 import com.ziraitakip.backend.constant.MailConstant;
-import com.ziraitakip.backend.dto.UserConfirmDto;
 import com.ziraitakip.backend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -17,7 +16,7 @@ public class EmailService {
     public void sendActivationMail(String toMail, User user, String token) {
         try {
             String text = "Merhaba " + user.getFullName() + ", hesabınızı aktif etmek için lütfen uygulamaya aşağıdaki kodu giriniz veya link üzerinden aktivasyon sağlayabilirsiniz." +
-                    "\nKOD : " + user.getActivation_code() +
+                    "\nKOD : " + user.getActivationCode() +
                     "\nLINK : " + MailConstant.TEST_ACTIVATION_LINK +
                             "token=" + token;
             SimpleMailMessage message = new SimpleMailMessage();

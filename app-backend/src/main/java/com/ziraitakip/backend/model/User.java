@@ -6,7 +6,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity(name="`user`")
 @Data
@@ -21,17 +20,17 @@ public class User{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
-    private String first_name;
+    private String firstName;
     @Column(nullable = false)
-    private String last_name;
+    private String lastName;
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
-    private Boolean is_active = false;
+    private Boolean isActive = false;
     @Column(nullable = true)
-    private String activation_code;
+    private String activationCode;
     @CreationTimestamp()
     private Date created_at;
     @UpdateTimestamp()
@@ -52,11 +51,15 @@ public class User{
     public User() {
         super();
     }
-    public User(String email,String first_name,String last_name,String password){
+    public User(String email, String firstName, String lastName, String password){
         this.email = email;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
+    }
+
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
     }
 
 }

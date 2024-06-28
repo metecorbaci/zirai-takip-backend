@@ -12,6 +12,7 @@ public class SecurityConstant {
             "/swagger-ui/**",
             "/v3/api-docs/**",
             "/api-docs/**",
+            "/file/upload",
     };
     
     public static final List<String> CORS_URLS = List.of(

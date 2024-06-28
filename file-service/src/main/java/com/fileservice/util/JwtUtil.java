@@ -1,13 +1,12 @@
 package com.fileservice.util;
 
-import com.ziraitakip.backend.dto.UserConfirmDto;
+import com.fileservice.dto.UserDto;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 
 import javax.naming.AuthenticationException;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 @Component
 public class JwtUtil {
@@ -64,16 +63,18 @@ public class JwtUtil {
         }
     }
 
-    public UserConfirmDto resolveTokenForActivation(String token) {
-        Claims claims = parseJwtClaims(token);
-        String activationCode = claims.get("activation_code").toString();
-        Integer userId = Integer.parseInt(claims.get("id").toString());
-        return new UserConfirmDto(userId, activationCode, token);
-    }
-
     public String getMail(String token) {
         Claims claims = parseJwtClaims(token);
         return claims.get("email").toString();
+    }
+
+    public UserDto getUserInfo(String token) {
+        Claims claims = parseJwtClaims(token);
+        UserDto userDto = new UserDto();
+        userDto.setEmail(claims.get("email").toString());
+        userDto.setId(Long.parseLong(claims.get("id").toString()));
+        userDto.setRoleId(Integer.parseInt(claims.get("role_id").toString()));
+        return userDto;
     }
 
     public boolean validateToken(String token) {

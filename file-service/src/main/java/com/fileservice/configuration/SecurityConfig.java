@@ -1,5 +1,5 @@
 package com.fileservice.configuration;
-import com.common.constant.SecurityConstant;
+import com.fileservice.constant.SecurityConstant;
 import com.fileservice.service.CustomAuthService;
 import com.fileservice.util.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
